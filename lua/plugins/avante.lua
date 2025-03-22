@@ -17,12 +17,12 @@ return {
     vendors = {
       -- Available
       -- Available
-      copilot_o1 = {
+      openai_o1_pro = {
         __inherited_from = "openai",
-        model = "o1",
+        model = "o1-pro",
       },
       -- Available
-      copilot_o3_mini = {
+      openai_o3_mini = {
         __inherited_from = "openai",
         model = "o3-mini",
       },
