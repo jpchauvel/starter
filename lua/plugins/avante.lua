@@ -1,7 +1,8 @@
 return {
   "yetone/avante.nvim",
   event = "VeryLazy",
-  version = false, -- Never set this value to "*"! Never!
+  --version = false, -- Never set this value to "*"! Never!
+  version = "0.0.23", -- Never set this value to "*"! Never!
   opts = {
     -- add any opts here
     -- for example
@@ -12,7 +13,7 @@ return {
       timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
       temperature = 0.1,
       max_completion_tokens = 30000, -- Increase this to include reasoning tokens (for reasoning models)
-      --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+      reasoning_effort = "high", -- low|medium|high, only used for reasoning models
     },
     vendors = {
       -- Available
@@ -26,6 +27,14 @@ return {
         __inherited_from = "openai",
         model = "o3-mini",
       },
+    },
+    rag_service = {
+      enabled = true, -- Enables the RAG service
+      host_mount = os.getenv("HOME"), -- Host mount path for the rag service
+      provider = "openai", -- The provider to use for RAG service (e.g. openai or ollama)
+      llm_model = "", -- The LLM model to use for RAG service
+      embed_model = "", -- The embedding model to use for RAG service
+      endpoint = "https://api.openai.com/v1", -- The API endpoint for RAG service
     },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
