@@ -1,8 +1,8 @@
 return {
   "yetone/avante.nvim",
   event = "VeryLazy",
-  --version = false, -- Never set this value to "*"! Never!
-  version = "0.0.23", -- Never set this value to "*"! Never!
+  version = false, -- Never set this value to "*"! Never!
+  --version = "0.0.23", -- Never set this value to "*"! Never!
   opts = {
     -- add any opts here
     -- for example
