@@ -6,7 +6,7 @@ return {
   opts = {
     -- add any opts here
     -- for example
-    provider = "openai",
+    provider = "copilot",
     providers = {
       openai = {
         endpoint = "https://api.openai.com/v1",
@@ -26,6 +26,15 @@ return {
         __inherited_from = "openai",
         model = "o3-mini",
       },
+      copilot = {
+        model = "claude-sonnet-4",
+        timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
+        extra_request_body = {
+          temperature = 0.1,
+          max_completion_tokens = 30000, -- Increase this to include reasoning tokens (for reasoning models)
+          reasoning_effort = "high", -- low|medium|high, only used for reasoning models
+        },
+      }
     },
     rag_service = {
       enabled = false, -- Enables the RAG service
@@ -61,8 +70,18 @@ return {
     "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
     "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
     "ibhagwan/fzf-lua", -- for file_selector provider fzf
+    "stevearc/dressing.nvim", -- for input provider dressing
+    "folke/snacks.nvim", -- for input provider snacks
     "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-    "zbirenbaum/copilot.lua", -- for providers='copilot'
+    {
+      "zbirenbaum/copilot.lua", -- for providers='copilot'
+      version = "0.10.5",
+      event = "InsertEnter",
+      cmd = "Copilot",
+      config = function()
+        require("copilot").setup({})
+      end,
+    },
     {
       -- support for image pasting
       "HakonHarnes/img-clip.nvim",
