@@ -27,12 +27,13 @@ return {
         model = "o3-mini",
       },
       copilot = {
-        model = "claude-sonnet-4",
+        -- model = "claude-sonnet-4",
+        model = "gpt-4.1",
         timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
         extra_request_body = {
           temperature = 0.1,
           max_completion_tokens = 30000, -- Increase this to include reasoning tokens (for reasoning models)
-          reasoning_effort = "high", -- low|medium|high, only used for reasoning models
+          -- reasoning_effort = "high", -- low|medium|high, only used for reasoning models
         },
       }
     },
