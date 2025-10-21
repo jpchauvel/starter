@@ -37,6 +37,12 @@ return {
         },
       }
     },
+    acp_providers = {
+      ["opencode"] = {
+        command = "opencode",
+        args = { "acp" },
+      },
+    },
     rag_service = {
       enabled = true, -- Enables the RAG service
       host_mount = os.getenv("HOME"), -- Host mount path for the rag service
